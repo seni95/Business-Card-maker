@@ -1,10 +1,11 @@
 import logo from './logo.svg';
-import './App.css';
+import styles from './App.module.css';
+import Login from './components/login/login';
 
-function App() {
+function App({authService}) {
   return (
-    <div className="App">
-      <h1>hi</h1>
+    <div className={styles.app}>
+      <Login authService={authService}></Login>
     </div>
   );
 }
