@@ -60,12 +60,21 @@ const Maker = ({authService}) => {
             }
         })
     })
-  return (
 
+    const addCard=(card)=>{
+        const updated = [...cards, card];
+        setCards(updated);
+    }
+
+    
+
+  return (
     <section className={styles.maker}>
+    {console.log(typeof(addCard))}
+
         <Header onLogOut={onLogOut}></Header>
         <div className={styles.container}>
-            <Editor cards={cards}></Editor>
+            <Editor cards={cards} addCard={addCard}></Editor>
             <Preview cards={cards}></Preview>
         </div>
         <Footer></Footer>
