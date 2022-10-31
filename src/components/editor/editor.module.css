@@ -1,7 +1,16 @@
-@value makerGreen from '../../common/colors.css';
+@value makerGreen,makerLightGrey from '../../common/colors.css';
+@value mediaQuery: 62rem;
 
 .editor{
     flex-basis:50%;
-    background-color: tomato;
     color:makerGreen;
+    padding:0.5em 2em;
+    border-right: 1px solid makerLightGrey;
+}
+
+@media screen and (max-width:mediaQuery) {
+    .editor{
+border-right: none;
+border-bottom:1px solid makerLightGrey;
+    }
 }
