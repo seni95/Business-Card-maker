@@ -1,18 +1,28 @@
-import React from 'react';
+import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.module.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AuthService from './service/auth_service';
+import ImgUploader from './service/imgUploader';
+import ImageFileInput from './common/image_file_input/image_file_input';
 
 
 const authService = new AuthService();
+const imgUploader = new ImgUploader();
+const FileInput = props =>{
+  return <ImageFileInput {...props} imgUploader={imgUploader}/>;
+}
+
+
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App authService={authService}/>
-  </React.StrictMode>
+  <StrictMode>
+    <App authService={authService} FileInput={FileInput}/>
+  </StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

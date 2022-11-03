@@ -1,10 +1,9 @@
 import React from 'react';
 import { useRef } from 'react';
-import ImageFileInput from '../../common/image_file_input/image_file_input';
 import Button from '../button/button';
 import styles from './card_edit_form.module.css';
 
-const CardEditForm = ({card, updateCard,deleteCard}) => {
+const CardEditForm = ({FileInput, card, updateCard,deleteCard}) => {
    const nameRef = useRef();
    const companyRef = useRef();
    const themeRef = useRef();
@@ -17,7 +16,7 @@ const CardEditForm = ({card, updateCard,deleteCard}) => {
     ,theme
     ,title
     ,email
-    ,message} = card;
+    ,message,fileName,fileURL} = card;
 
     const onChange = (event)=>{
         if(event.currentTarget==null){
@@ -33,11 +32,20 @@ const CardEditForm = ({card, updateCard,deleteCard}) => {
         })
     };
 
+    const onFileChange = file=>{
+        updateCard({
+            ...card,
+            fileName:file.name,
+            fileURL:file.url
+        })
+    }
+
     const onSubmit=(event)=>{
         deleteCard(card);
     };
   return (
  <form className={styles.form}>
+    {console.log(fileName)}
     <input className={styles.input} ref={nameRef} type="text" name='name' value={name} onChange={onChange}/>
     <input className={styles.input} ref={companyRef} type="text" name='company' value={company} onChange={onChange}/>
     <select className={styles.select} ref={themeRef} name="theme" id="" value={theme} onChange={onChange}>
@@ -49,7 +57,7 @@ const CardEditForm = ({card, updateCard,deleteCard}) => {
     <input className={styles.input} ref={emailRef} type="text" name='email' value={email} onChange={onChange}/>
     <textarea className={styles.textarea} ref={messageRef} name="message" cols="30" rows="10" value={message} onChange={onChange}></textarea>
     <div className={styles.fileInput}>
-    <ImageFileInput></ImageFileInput>
+    <FileInput name={fileName} onFileChange={onFileChange}></FileInput>
     </div>
     <Button name='delete' onClick={onSubmit}></Button>
  </form>
