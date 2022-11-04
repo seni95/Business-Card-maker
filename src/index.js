@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import AuthService from './service/auth_service';
 import ImgUploader from './service/imgUploader';
 import ImageFileInput from './common/image_file_input/image_file_input';
+import CardRepository from './service/card_repository';
 
 
 const authService = new AuthService();
@@ -14,14 +15,13 @@ const FileInput = props =>{
   return <ImageFileInput {...props} imgUploader={imgUploader}/>;
 }
 
-
-
+const cardRepository = new CardRepository();
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <StrictMode>
-    <App authService={authService} FileInput={FileInput}/>
+    <App authService={authService} FileInput={FileInput} cardRepository={cardRepository}/>
   </StrictMode>
 );
 
