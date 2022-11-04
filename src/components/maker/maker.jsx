@@ -7,7 +7,6 @@ import Preview from '../preview/preview';
 import styles from './maker.module.css';
 import Editor from '../editor/editor';
 import { useState } from 'react';
-import CardRepository from '../../service/card_repository';
 
 const Maker = ({FileInput, authService,cardRepository}) => {
     const [userId,setUserId] = useState();
@@ -32,7 +31,7 @@ const Maker = ({FileInput, authService,cardRepository}) => {
             stopSync();
         }
     },[userId,cardRepository]);
-    
+
 
     useEffect(()=>{
         authService.onAuthChange(user=>{
