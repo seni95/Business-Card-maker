@@ -13,8 +13,6 @@ const Editor = ({FileInput, cards, addCard, updateCard,deleteCard}) => {
         FileInput={FileInput}
         card={cards[key]} updateCard={updateCard} deleteCard={deleteCard}></CardEditForm>
     )}
-    {console.log(typeof(addCard))}
-    {console.log("체크")}
     <CardAddForm FileInput={FileInput} onAdd={addCard}></CardAddForm>
     </section>
   )

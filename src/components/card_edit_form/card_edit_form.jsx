@@ -23,8 +23,6 @@ const CardEditForm = ({FileInput, card, updateCard,deleteCard}) => {
             return;
         }
 
-        console.log(event.currentTarget.name);
-        console.log(event.currentTarget.value);
         event.preventDefault();
         updateCard({
             ...card,
@@ -45,7 +43,6 @@ const CardEditForm = ({FileInput, card, updateCard,deleteCard}) => {
     };
   return (
  <form className={styles.form}>
-    {console.log(fileName)}
     <input className={styles.input} ref={nameRef} type="text" name='name' value={name} onChange={onChange}/>
     <input className={styles.input} ref={companyRef} type="text" name='company' value={company} onChange={onChange}/>
     <select className={styles.select} ref={themeRef} name="theme" id="" value={theme} onChange={onChange}>

@@ -24,7 +24,6 @@ const ImageFileInput = ({imgUploader,name,onFileChange}) => {
   
   return (
     <div className={styles.container}>
-      {console.log(onFileChange)}
       <input 
       className={styles.input}
       ref={inputRef}
